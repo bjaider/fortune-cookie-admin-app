@@ -12,7 +12,7 @@ export const getQuotes = async (): Promise<getQuotesResponse[]> => {
 
   const data: { data: DocumentResponse[] } = await response.json()
 
-  if (!data.data.length) {
+  if (!data?.data?.length) {
     throw new Error('No quotes found')
   }
 

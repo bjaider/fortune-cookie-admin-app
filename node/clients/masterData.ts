@@ -27,8 +27,8 @@ export default class MasterData extends ExternalClient {
     const apps = new Apps(vtex)
     const appId = process.env.VTEX_APP_ID as string
     const settings = await apps.getAppSettings(appId)
-    const API_KEY = settings.vtexAppKey || "vtexappkey-valtech-TJBMXQ"
-    const API_TOKEN = settings.vtexAppToken || "XWAJLADLCJHLEYJMUHAXKTYRSTQXRFLPQJWTBYMGXJUHREQMGIUVTMDSMMEVMOYZYXFANGJPRMRBHDURJKAKTMIPQRHZKZUCMMWGCAUXQHIEBIQNQAPNTMGEDNPQAYMA"
+    const API_KEY = settings.vtexAppKey
+    const API_TOKEN = settings.vtexAppToken
     this.credentials = {
       API_KEY,
       API_TOKEN,
