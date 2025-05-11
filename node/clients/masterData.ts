@@ -25,7 +25,7 @@ export default class MasterData extends ExternalClient {
 
   private async getCredentials(vtex: IOContext) {
     const apps = new Apps(vtex)
-    const appId = process.env.VTEX_APP_ID as string
+    const appId = "valtech.fortune-cookie-app@1.x"
     const settings = await apps.getAppSettings(appId)
     const API_KEY = settings.vtexAppKey
     const API_TOKEN = settings.vtexAppToken

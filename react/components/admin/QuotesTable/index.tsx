@@ -95,7 +95,7 @@ const QuotesTable = () => {
           },
           inputSearch: {
             value: searchValue ?? '',
-            placeholder: intl.formatMessage({ id: 'admin/quotes-table.toolbar.search.placeholder' }),
+            placeholder: intl.formatMessage({ id: 'admin/quotes-table.toolbar.inputSearch.placeholder' }),
             onChange: (e: React.ChangeEvent<HTMLInputElement>) => setSearchValue(e.target.value),
             onClear: () => {
               setSearchValue('')

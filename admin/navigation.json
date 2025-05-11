@@ -4,7 +4,7 @@
   "searchKeyWordsHelpers": "admin/fortune-cookie-app.navigation.search.kws",
   "subSectionItems": [
     {
-      "labelId": "fortune-cookie-app.navigation.label-table",
+      "labelId": "admin/fortune-cookie-app.navigation.label-table",
       "path": "/admin/fortune-cookie-app",
       "searchKeyWordsHelpers": "admin/fortune-cookie-app.navigation.table.search.kws"
     }
