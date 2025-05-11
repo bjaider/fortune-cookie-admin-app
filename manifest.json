@@ -1,0 +1,68 @@
+{
+  "name": "fortune-cookie-app",
+  "vendor": "valtech",
+  "version": "0.0.1",
+  "title": "Admin app",
+  "scripts": {
+    "postreleasy": "vtex publish"
+  },
+  "dependencies": {
+    "vtex.styleguide": "9.x",
+    "vtex.css-handles": "0.x",
+    "vtex.store-graphql": "2.x"
+  },
+  "builders": {
+    "react": "3.x",
+    "admin": "0.x",
+    "messages": "1.x",
+    "docs": "0.x",
+    "store": "0.x",
+    "node": "6.x"
+  },
+  "policies": [
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "{{account}}.vtexcommercestable.com.br",
+        "path": "*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "api.vtex.com",
+        "path": "*"
+      }
+    },
+    {
+      "name": "colossus-fire-event"
+    },
+    {
+      "name": "colossus-write-logs"
+    }
+  ],
+  "settingsSchema": {
+    "title": "App keys",
+    "type": "object",
+    "properties": {
+      "vtexAppKey": {
+        "title": "VTEX App Key",
+        "type": "string"
+      },
+      "vtexAppToken": {
+        "title": "VTEX App Token",
+        "type": "string"
+      }
+    }
+  },
+  "settingsUiSchema": {
+    "ui:order": [
+      "vtexAppKey",
+      "vtexAppToken"
+    ],
+    "vtexAppToken": {
+      "ui:widget": "password"
+    }
+  },
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}

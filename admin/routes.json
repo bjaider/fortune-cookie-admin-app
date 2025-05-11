@@ -1,0 +1,6 @@
+{
+  "admin.app.fortune-cookie-app": {
+    "component": "AdminFortuneCookieQuote",
+    "path": "/admin/app/fortune-cookie-app"
+  }
+}
