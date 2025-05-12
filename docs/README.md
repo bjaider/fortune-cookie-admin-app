@@ -1,25 +1,74 @@
-# [Deprecating] Admin Example
+# Fortune Cookie Admin App
 
-_We're working on our new design system. Please get in touch if you are part of VTEX product team and working on an admin app. If you are external to VTEX you can still use this repo._
+**Fortune Cookie Admin App** is an administrative application built for the **VTEX IO** platform, designed to help store admins manage “fortune cookie”-style messages that can be displayed to customers.
 
-An example admin app that adds a menu button to the admin sidebar and a navigation via parameter example.
+## 🚀 Features
 
-### How to develop admins
+- User-friendly interface integrated into VTEX Admin.
+- Manage personalized messages for your store visitors.
+- Backend services for saving and retrieving messages.
+- Multilanguage support via internationalization files.
 
-1. Admins always declare routes in `/admin/app/<route>`
+## 🛠️ Project Structure
 
-2. Declare the `admin` builder in your manifest
+- `admin/`: VTEX Admin configuration.
+- `react/`: React components.
+- `node/`: Backend logic and services.
+- `store/`: VTEX schema and app configurations.
+- `messages/`: i18n files.
+- `docs/`: Additional documentation.
 
-3. When installed, the user navigates to `/admin/<route>`, but your app runs in an iframe that points to `/admin/app/<route>`.
+## 📦 Setup Instructions
 
-4. You can develop directly in the `/admin/app` route for convenience, but don't forget to test it inside the iframe. :)
+> 🛠️ **Prerequisite:** Make sure you have the [VTEX IO CLI installed](https://developers.vtex.com/docs/guides/vtex-io-documentation-vtex-io-cli-install) on your machine.
 
-### Quickstart
+1. Clone the repository:
 
-1. Clone this repo
+   ```bash
+   git clone https://github.com/bjaider/fortune-cookie-admin-app.git
+   cd fortune-cookie-admin-app
+   ```
 
-2. `yarn --cwd react/` for code completion
+2. Log in to your VTEX account:
 
-3. `vtex link`
+   ```bash
+   vtex login {your-account}
+   ```
 
-4. Navigate to `workspace--account.myvtex.com/admin/app/example`
+3. Use the workspace:
+
+   ```bash
+   vtex use {your-workspace}
+   ```
+
+4. Link the app:
+
+   ```bash
+   vtex link
+   ```
+
+5. Open the app in the VTEX Admin:
+
+   ```
+   https://{your-workspace}--{your-account}.myvtex.com/admin/app/fortune-cookie
+   ```
+
+
+## 🔐 Setup
+
+To make the app work correctly, you need to set your **AppKey** and **AppToken** in the app’s configuration panel.
+
+Go to:
+
+```
+https://{your-workspace}--{your-account}.myvtex.com/admin/apps/valtech.fortune-cookie-app@1.0.2/setup
+```
+
+You should see a screen like the following one (see image below):
+
+![image](https://github.com/user-attachments/assets/fe206bbe-125e-4241-a0a8-d6bcf643f597)
+
+## 📬 Contact
+
+- Developer: Jaider Bermudez  
+- GitHub: [@bjaider](https://github.com/bjaider)
