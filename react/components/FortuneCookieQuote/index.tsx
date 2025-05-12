@@ -60,9 +60,19 @@ const FortuneCookieQuote = ({ backgroundImage }: fortuneCookieQuoteProps) => {
     }
   }
 
+  const containerStyle = backgroundImage
+    ? {
+      backgroundImage: `url(${backgroundImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }
+    : {
+      border: '1px solid lightgray',
+    }
+
   return (
-    <div className={handles.fortuneCookieContainer}>
-      <img src={backgroundImage} alt="background image" className={handles.fortuneCookieBackgroundImage} />
+    <div className={handles.fortuneCookieContainer}
+      style={containerStyle}>
       {loading && (
         <div className={handles.fortuneCookieSpinner}>
           <Spinner />
