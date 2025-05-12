@@ -13,7 +13,6 @@ export const handleCreateQuote = async (
     closeModal()
     showAlert('Quote created successfully!', 'success')
   } catch (error) {
-    console.error('Error creating the quote:', error)
     showAlert('Failed to create the quote.', 'error')
   }
 }
@@ -41,7 +40,6 @@ export const handleDeleteQuotes = async (
     setTableKey((prev) => prev + 1)
     showAlert('Quotes deleted successfully!', 'success')
   } catch (error) {
-    console.error('Error deleting quotes:', error)
     showAlert('Failed to delete the quotes.', 'error')
   } finally {
     setTableKey((prev) => prev + 1)

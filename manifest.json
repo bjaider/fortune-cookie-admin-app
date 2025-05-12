@@ -2,7 +2,7 @@
   "name": "fortune-cookie-app",
   "vendor": "valtech",
   "version": "1.0.2",
-  "title": "Admin app",
+  "title": "Fortune Cookie App",
   "scripts": {
     "postreleasy": "vtex publish"
   },
@@ -23,6 +23,13 @@
     {
       "name": "outbound-access",
       "attrs": {
+        "host": "portal.vtexcommercestable.com.br",
+        "path": "/api/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
         "host": "{{account}}.vtexcommercestable.com.br",
         "path": "*"
       }
@@ -39,10 +46,28 @@
     },
     {
       "name": "colossus-write-logs"
+    },
+    {
+      "name": "update-app-settings"
+    },
+    {
+      "name": "ADMIN_DS"
+    },
+    {
+      "name": "POWER_USER_DS"
+    },
+    {
+      "name": "OMSViewer"
+    },
+    {
+      "name": "vbase-read-write"
+    },
+    {
+      "name": "ShippingAction"
     }
   ],
   "settingsSchema": {
-    "title": "App keys",
+    "title": "Fortune Cookie App",
     "type": "object",
     "properties": {
       "vtexAppKey": {
@@ -53,18 +78,6 @@
         "title": "VTEX App Token",
         "type": "string"
       }
-    }
-  },
-  "settingsUiSchema": {
-    "ui:order": [
-      "vtexAppKey",
-      "vtexAppToken"
-    ],
-    "vtexAppKey": {
-      "ui:widget": "password"
-    },
-    "vtexAppToken": {
-      "ui:widget": "password"
     }
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"

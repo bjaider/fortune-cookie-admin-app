@@ -125,11 +125,11 @@ const QuotesTable = () => {
           texts: {
             secondaryActionsLabel: intl.formatMessage({ id: 'admin/quotes-table.bulkActions.secondaryActionsLabel' }),
             rowsSelected: (qty: number) => (
-              <Fragment>{intl.formatMessage({ id: 'admin/quotes-table.bulkActions.rowsSelected' }, { qty })}</Fragment>
+              <Fragment>{intl.formatMessage({ id: 'admin/quotes-table.bulkActions.texts.allRowsSelected' }, { qty })}</Fragment>
             ),
-            selectAll: intl.formatMessage({ id: 'admin/quotes-table.bulkActions.selectAll' }),
+            selectAll: intl.formatMessage({ id: 'admin/quotes-table.bulkActions.texts.selectAll' }),
             allRowsSelected: (qty: number) => (
-              <Fragment>{intl.formatMessage({ id: 'admin/quotes-table.bulkActions.allRowsSelected' }, { qty })}</Fragment>
+              <Fragment>{intl.formatMessage({ id: 'admin/quotes-table.bulkActions.texts.allRowsSelected' }, { qty })}</Fragment>
             ),
           },
           totalItems: items.length,
@@ -150,16 +150,16 @@ const QuotesTable = () => {
         onClose={() => setIsDeleteModalOpen(false)}
         confirmation={{
           onClick: () => handleDeleteQuotes(items, pendingDeleteRows, setItems, setTableKey, setIsDeleteModalOpen, setPendingDeleteRows, showAlert),
-          label: intl.formatMessage({ id: 'admin/quotes-table.modalDialog.confirmation.label' }),
+          label: intl.formatMessage({ id: 'admin/quotes-table.modalDialog.confirm' }),
           isDangerous: true,
         }}
         cancelation={{
           onClick: () => setIsDeleteModalOpen(false),
-          label: intl.formatMessage({ id: 'admin/quotes-table.modalDialog.cancelation.label' }),
+          label: intl.formatMessage({ id: 'admin/quotes-table.modalDialog.cancel' }),
         }}
       >
         <span>
-          {intl.formatMessage({ id: 'admin/quotes-table.modalDialog.message' }, { qty: pendingDeleteRows.length })}
+          {intl.formatMessage({ id: 'admin/quotes-table.bulkActions.main.confirmation' }, { qty: pendingDeleteRows.length })}
         </span>
       </ModalDialog>
     </div>

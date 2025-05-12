@@ -37,7 +37,6 @@ export const createQuote = async (quote: string) => {
     const newQuoteData = await response.json()
     return newQuoteData
   } catch (error) {
-    console.error('Error creating the quote:', error)
     throw error
   }
 }
@@ -58,7 +57,6 @@ export const deleteQuoteById = async (quoteId: string) => {
 
     return await response.json()
   } catch (error) {
-    console.error('Error deleting the quote:', error)
     throw error
   }
 }

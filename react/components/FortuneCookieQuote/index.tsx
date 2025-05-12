@@ -8,14 +8,20 @@ import { useIntl } from 'react-intl'
 
 const CSS_HANDLES = [
   'fortuneCookieContainer',
+  'fortuneCookieBackgroundImage',
   'fortuneCookieButton',
   'fortuneCookieSpinner',
   'fortuneCookieQuoteWrapper',
   'fortuneCookiePhrase',
+  'fortuneCookieLuckyNumberContainer',
   'fortuneCookieLuckyNumber',
 ]
 
-const FortuneCookieQuote: React.FC = () => {
+type fortuneCookieQuoteProps = {
+  backgroundImage: string
+}
+
+const FortuneCookieQuote = ({ backgroundImage }: fortuneCookieQuoteProps) => {
   const handles = useCssHandles(CSS_HANDLES)
   const [loading, setLoading] = useState(false)
   const [quote, setQuote] = useState<getQuotesResponse | string>('')
@@ -40,7 +46,6 @@ const FortuneCookieQuote: React.FC = () => {
         setQuote(newQuote)
         setLuckyNumber(newLucky)
       } catch (error) {
-        console.error('Error generating quote:', error)
         setQuote(intl.formatMessage({ id: 'store/fortune-cookie-quote.error' }))
         setLuckyNumber('')
       } finally {
@@ -57,30 +62,52 @@ const FortuneCookieQuote: React.FC = () => {
 
   return (
     <div className={handles.fortuneCookieContainer}>
-      <button
-        className={handles.fortuneCookieButton}
-        onClick={generate}
-        disabled={loading}
-      >
-        {loading ? intl.formatMessage({ id: 'store/fortune-cookie-quote.loading' }) : intl.formatMessage({ id: 'store/fortune-cookie-quote.generate' })}
-      </button>
-
+      <img src={backgroundImage} alt="background image" className={handles.fortuneCookieBackgroundImage} />
       {loading && (
         <div className={handles.fortuneCookieSpinner}>
           <Spinner />
         </div>
       )}
 
-      {!loading && quote && luckyNumber && (
-        <div className={handles.fortuneCookieQuoteWrapper}>
-          <h3 className={handles.fortuneCookiePhrase}>{quote}</h3>
+      {!loading && luckyNumber && (
+        <div className={handles.fortuneCookieLuckyNumberContainer}>
           <h5 className={handles.fortuneCookieLuckyNumber}>
-            {intl.formatMessage({ id: 'store/fortune-cookie-quote.luckyNumber' })}: {luckyNumber}
+            {luckyNumber}
           </h5>
         </div>
       )}
+
+      {!loading && quote && (
+        <div className={handles.fortuneCookieQuoteWrapper}>
+          <h3 className={handles.fortuneCookiePhrase}>{quote}</h3>
+        </div>
+      )}
+
+      <button
+        className={handles.fortuneCookieButton}
+        onClick={generate}
+        disabled={loading}
+      >
+        {intl.formatMessage({ id: 'store/fortune-cookie-quote.generate' })}
+      </button>
     </div>
   )
 }
+
+FortuneCookieQuote.schema = {
+  title: 'Fortune cookies app',
+  type: 'object',
+  properties: {
+    backgroundImage: {
+      title: 'Imagen de fondo',
+      type: 'string',
+      widget: {
+        'ui:widget': 'image-uploader',
+      },
+    },
+  },
+};
+
+
 
 export default FortuneCookieQuote

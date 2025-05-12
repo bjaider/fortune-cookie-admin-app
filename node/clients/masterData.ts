@@ -5,22 +5,14 @@ export default class MasterData extends ExternalClient {
     API_KEY: string
     API_TOKEN: string
   }
-
   constructor(context: IOContext, options?: InstanceOptions) {
-    super(`https://api.vtex.com/${context.account}/dataentities`, context,
-      {
-        ...options,
-        headers: {
-          ...options && options.headers,
-          ...(context.adminUserAuthToken
-            ? { VtexIdclientAutCookie: context.adminUserAuthToken }
-            : null),
-          'Access-Control-Allow-Origin': '*'
-
-
-        }
-      }
-    )
+    super(`http://${context.account}.vtexcommercestable.com.br/api/dataentities`, context, {
+      ...options,
+      headers: {
+        ...(options && options.headers),
+        Accept: 'application/vnd.vtex.ds.v10+json',
+      },
+    })
   }
 
   private async getCredentials(vtex: IOContext) {
